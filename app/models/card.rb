@@ -1,4 +1,4 @@
-class Board < ApplicationRecord
+class Card < ApplicationRecord
   validates_presence_of :title, allow_blank: false
-  has_many :lists
+  belongs_to :list
 end

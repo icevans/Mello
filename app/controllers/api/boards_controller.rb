@@ -18,6 +18,15 @@ class Api::BoardsController < ApplicationController
     render 'api/shared/error', status: :unprocessable_entity
   end
 
+  # /api/boards/:id
+  def show
+    @board = Board.find(params[:id])
+
+  rescue ActiveRecord::RecordNotFound
+    @error = "No board with id #{params[:id]}"
+    render 'api/shared/error', status: :unprocessable_entity
+  end
+
   private
 
   def board_params
