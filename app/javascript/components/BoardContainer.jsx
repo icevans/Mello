@@ -40,5 +40,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(BoardContainer);
-
-// export default BoardContainer;
