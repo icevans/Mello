@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ListsContainer from './ListsContainer';
+
 const Board = ({ board }) => {
     return (
       <div>
@@ -20,7 +22,7 @@ const Board = ({ board }) => {
         </header>
 
         <main>
-          {/* <ListContainer lists={this.props.board.lists} /> */}
+          <ListsContainer boardId={board.id} />
         </main>
 
         <div id="modal-container"></div>
