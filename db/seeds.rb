@@ -45,3 +45,40 @@ card5 = Card.create(
   description: "some desc",
   labels: ["red", "yellow"]
 )
+
+
+board2 = Board.create(title: 'Second Board')
+list3 = List.create(title: 'List 3', board: board2)
+list4 = List.create(title: '4', board: board2)
+card6 = Card.create(
+  title: "first card",
+  list: list3,
+  description: "some desc",
+  labels: ["red", "yellow"]
+)
+
+card7 = Card.create(
+  title: "second card",
+  list: list3,
+  description: "some desc",
+  labels: ["red", "yellow"]
+)
+
+card8 = Card.create(
+  title: "third card",
+  list: list4,
+  description: "some desc",
+  labels: ["red", "yellow"]
+)
+card9 = Card.create(
+  title: "fourth card",
+  list: list4,
+  description: "some desc",
+  labels: ["red", "yellow"]
+)
+card10 = Card.create(
+  title: "fifth card",
+  list: list4,
+  description: "some desc",
+  labels: ["red", "yellow"]
+)
