@@ -3,7 +3,6 @@ export default function boardsReducer(state = [], action) {
     return action.boards;
   } else if (action.type === 'CREATE_BOARD_SUCCESS') {
     const newBoard = action.board;
-    newBoard.id = Number(newBoard.id);
 
     return state.concat(newBoard);
   } else if (action.type === 'FETCH_BOARD_SUCCESS') {

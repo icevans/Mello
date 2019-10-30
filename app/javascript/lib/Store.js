@@ -2,10 +2,12 @@ import { createStore as cs, applyMiddleware, compose } from 'redux';
 import ReduxThunk from 'redux-thunk';
 
 import boardsReducer from '../reducers/BoardsReducer';
+import listsReducer from '../reducers/ListsReducer';
 
 function reducer(state = {}, action) {
   return {
-    boards: boardsReducer(state.boards, action)
+    boards: boardsReducer(state.boards, action),
+    lists: listsReducer(state.lists, action),
   };
 }
 
