@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+import { createList } from '../actions/ListActions.js';
+
 import List from './List';
 import NewList from './NewList';
 
@@ -12,6 +14,9 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
+    onCreateList: (title) => {
+      dispatch(createList({ title }, ownProps.boardId));
+    }
   };
 }
 
@@ -22,7 +27,7 @@ class ListsContainer extends React.Component {
         <div id="existing-lists" className="existing-lists">
           {this.props.lists.map(list => <List key={list.id} list={list} />)}
         </div>
-        <NewList />
+        <NewList onCreateList={this.props.onCreateList} />
       </div>
     );
   }
