@@ -17,6 +17,12 @@ class Api::ListsController < ApplicationController
     render 'api/shared/error', status: :not_found
   end
 
+  def update
+    puts params[:id]
+  end
+
+  private
+
   def list_params
     params.require(:list).permit(:title)
   end
