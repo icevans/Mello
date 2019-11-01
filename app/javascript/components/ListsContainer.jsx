@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 import List from './List';
+import NewList from './NewList';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -21,12 +22,7 @@ class ListsContainer extends React.Component {
         <div id="existing-lists" className="existing-lists">
           {this.props.lists.map(list => <List key={list.id} list={list} />)}
         </div>
-        <div id="new-list" className="new-list"><span>Add a list...</span>
-          <input type="text" placeholder="Add a list..." />
-          <div>
-            <input type="submit" className="button" value="Save" /><i className="x-icon icon"></i>
-          </div>
-        </div>
+        <NewList />
       </div>
     );
   }
