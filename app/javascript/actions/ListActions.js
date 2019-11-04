@@ -23,3 +23,26 @@ export function createList(list, boardId, callback) {
     });
   }
 }
+
+export function updateListRequest() {
+  return { type: types.UPDATE_LIST_REQUEST };
+};
+
+export function updateListSuccess(updatedList) {
+  return {
+    type: types.UPDATE_LIST_SUCCESS,
+    payload: { updatedList },
+  };
+};
+
+export function updateTitle(listProps, listId, callback) {
+  return function (dispatch) {
+    dispatch(updateListRequest());
+
+    apiClient.updateList(listProps, listId, updatedList => {
+      dispatch(updateListSuccess(updatedList));
+
+      if (callback) { callback(updatedList); }
+    });
+  };
+};

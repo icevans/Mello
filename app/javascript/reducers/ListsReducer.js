@@ -6,7 +6,16 @@ export default function listsReducer(state = [], action) {
     return excludedLists.concat(lists);
   } else if (action.type === 'CREATE_LIST_SUCCESS') {
     return state.concat(action.payload.newList);
-  } else {
+  } else if (action.type === 'UPDATE_LIST_SUCCESS') {
+    return state.map(list => {
+      if (list.id === action.payload.updatedList.id) {
+        return action.payload.updatedList;
+      } else {
+        return list
+      }
+    });
+  }
+  else {
     return state;
   }
 }

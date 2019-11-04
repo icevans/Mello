@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CardsContainer from './CardsContainer';
+import ListTitleContainer from './ListTitleContainer';
 
 class List extends React.Component {
 
