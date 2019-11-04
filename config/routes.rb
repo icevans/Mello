@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :boards, only: [:index, :create, :show]
     resources :lists, only: [:create, :update]
+    resources :cards, only: [:create]
   end
-  
+
   get '/boards/:id', to: 'home#index'
   get '/ui/all_boards', to: 'ui#all_boards'
   get '/ui/single_board', to: 'ui#single_board'
