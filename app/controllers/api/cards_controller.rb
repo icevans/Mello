@@ -35,6 +35,16 @@ class Api::CardsController < ApplicationController
     render 'api/shared/error', status: :not_found
   end
 
+  def show
+    @card = Card.find(params[:id])
+
+    render :show
+
+  rescue ActiveRecord::RecordNotFound
+    @error = "Invalid card id provided"
+    render 'api/shared/error', status: :not_found
+  end
+
   private
 
   def card_params

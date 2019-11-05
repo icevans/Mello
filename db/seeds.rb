@@ -17,33 +17,38 @@ card1 = Card.create(
   title: "first card",
   list: list1,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 2.days.from_now
 )
 
 card2 = Card.create(
   title: "second card",
   list: list1,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 4.days.from_now
 )
 
 card3 = Card.create(
   title: "third card",
   list: list2,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 1.days.from_now
 )
 card4 = Card.create(
   title: "fourth card",
   list: list2,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: -1.days.from_now
 )
 card5 = Card.create(
   title: "fifth card",
   list: list2,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 0.days.from_now
 )
 
 
@@ -54,31 +59,36 @@ card6 = Card.create(
   title: "first card",
   list: list3,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 2.days.from_now
 )
 
 card7 = Card.create(
   title: "second card",
   list: list3,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 1.days.from_now
 )
 
 card8 = Card.create(
   title: "third card",
   list: list4,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: -5.days.from_now
 )
 card9 = Card.create(
   title: "fourth card",
   list: list4,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 10.days.from_now
 )
 card10 = Card.create(
   title: "fifth card",
   list: list4,
   description: "some desc",
-  labels: ["red", "yellow"]
+  labels: ["red", "yellow"],
+  due_date: 7.days.from_now
 )
