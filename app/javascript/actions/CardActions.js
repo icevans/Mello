@@ -12,6 +12,17 @@ export function createCardSuccess(newCard) {
   };
 };
 
+export function fetchCardRequest() {
+  return { type: types.FETCH_CARD_REQUEST };
+}
+
+export function fetchCardSuccess(card) {
+  return { 
+    type: types.FETCH_CARD_SUCCESS,
+    payload: { card }
+  };
+}
+
 export function createCard(card, listId, callback) {
   return function(dispatch) {
     dispatch(createCardRequest());
@@ -21,5 +32,18 @@ export function createCard(card, listId, callback) {
 
       if (callback) { callback(); }
     });
+  };
+};
+
+export function fetchCard(id, callback) {
+  return function(dispatch) {
+    dispatch(fetchCardRequest());
+    apiClient.getCard(
+      id, 
+      card => {
+        dispatch(fetchCardSuccess(card))
+        if (callback) { callback(card.board_id); }
+      }
+    );
   };
 };
