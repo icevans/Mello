@@ -2,7 +2,7 @@ import React from "react";
 import CardModalContainer from "./CardModalContainer";
 import ListsContainer from "./ListsContainer";
 
-const Board = ({ board, modalVisible }) => {
+const Board = ({ board, modalVisible, card }) => {
   return (
     <div>
       <header>
@@ -25,7 +25,7 @@ const Board = ({ board, modalVisible }) => {
         <ListsContainer boardId={board.id} />
       </main>
 
-      {modalVisible ? <CardModalContainer /> : ''} 
+      {modalVisible ? <CardModalContainer cardId={card.id} /> : ''} 
       <div id="dropdown-container"></div>
     </div>
   );

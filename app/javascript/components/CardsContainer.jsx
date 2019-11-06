@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Card from './Card';
@@ -19,7 +20,12 @@ class CardsContainer extends React.Component {
   render() {
     return (
       <div id="cards-container" data-id={ "list-" + this.props.listId + "-cards" }>
-        {this.props.cards.map(card => <Card key={card.id} card={card} />)}
+        {this.props.cards.map(card => (
+          <Link key={card.id} to={`/cards/${card.id}`}>
+            <Card card={card} />
+          </Link>
+          )
+         )}
       </div>
     );
   }
