@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
   validates_presence_of :title, allow_blank: false
+  has_many :comments
   belongs_to :list
 
   def board_id

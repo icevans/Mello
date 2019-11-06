@@ -9,6 +9,7 @@
 Board.destroy_all
 List.destroy_all
 Card.destroy_all
+Comment.destroy_all
 
 board = Board.create(title: 'New Board')
 list1 = List.create(title: 'List 1', board: board)
@@ -21,6 +22,8 @@ card1 = Card.create(
   due_date: 2.days.from_now
 )
 
+comment1 = Comment.create(text: "First comment", card: card1)
+
 card2 = Card.create(
   title: "second card",
   list: list1,
@@ -28,6 +31,9 @@ card2 = Card.create(
   labels: ["red", "yellow"],
   due_date: 4.days.from_now
 )
+
+comment2 = Comment.create(text: "second comment", card: card2)
+comment3 = Comment.create(text: "third comment", card: card2)
 
 card3 = Card.create(
   title: "third card",
@@ -62,6 +68,8 @@ card6 = Card.create(
   labels: ["red", "yellow"],
   due_date: 2.days.from_now
 )
+
+comment4 = Comment.create(text: "nice", card: card6)
 
 card7 = Card.create(
   title: "second card",
