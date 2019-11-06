@@ -57,7 +57,6 @@ function mapDispatchToProps(dispatch, ownProps) {
 
 class BoardContainer extends React.Component {
   componentDidMount() {
-    console.log(this.props.currentLocation);
     if (this.props.currentLocation === 'boards') {
       this.props.onBoardLoaded();
     } else {

@@ -30,7 +30,7 @@ const CardModal = ({ card, list }) => {
       <Link to={`/boards/${list.board_id}`}>
         <div className="screen"></div>
       </Link>
-      
+
       <div id="modal">
         <Link to={`/boards/${list.board_id}`}>
           <i className="x-icon icon close-modal"></i>
@@ -76,7 +76,8 @@ const CardModal = ({ card, list }) => {
                       className="checkbox"
                       checked=""
                     />
-                    {moment(card.due_date).format('MMM D [at] LT')} <span>{ dueDateDifference(card.due_date) < 0 ? '(past due)' : ''}</span>
+                    {moment(card.due_date).format('MMM D [at] LT')} 
+                    <span>{ dueDateDifference(card.due_date) < 0 ? '(past due)' : ''}</span>
                   </div>
                 </li>
               </ul>

@@ -6,7 +6,6 @@ const Card = (props) => {
     const dueDate = moment(due_date);
     const currentDate = moment(new Date());
     const difference = dueDate.diff(currentDate, 'days');
-    console.log(difference);
     return difference;
   }
 
