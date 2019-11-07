@@ -48,6 +48,14 @@ class CardModal extends React.Component {
     this.props.onCardChange({ description });
   };
 
+  handleArchiveCard = () => {
+    this.props.onCardChange({ archived: true });
+  };
+
+  handleUnarchiveCard = () => {
+    this.props.onCardChange({ archived: false });
+  };
+
   render() {
     return (
       <div id="modal-container">
@@ -60,8 +68,14 @@ class CardModal extends React.Component {
             <i className="x-icon icon close-modal"></i>
           </Link>
 
+          {this.props.card.archived ? (
+            <div className="archived-banner"><i className="file-icon icon"></i>This card is archived.</div>
+          ) : (
+            ''
+          )}
+
           <header>
-            <i className="card-icon icon .close-modal"></i>
+            <i className="card-icon icon"></i>
             <textarea
               className="list-title"
               style={{ height: "45px" }}
@@ -240,9 +254,16 @@ class CardModal extends React.Component {
                 <i className="check-icon sm-icon"></i>
               </li>
               <hr />
-              <li className="archive-button">
-                <i className="file-icon sm-icon "></i>Archive
-              </li>
+              {this.props.card.archived ? (
+                <React.Fragment>
+                  <li className="unarchive-button" onClick={this.handleUnarchiveCard}><i className="send-icon sm-icon"></i>Send to board</li>
+                  <li className="red-button"><i className="minus-icon sm-icon"></i>Delete</li>
+                </React.Fragment>
+              ) : (
+                <li className="archive-button" onClick={this.handleArchiveCard}>
+                  <i className="file-icon sm-icon"></i>Archive
+                </li>
+              )}
             </ul>
             <ul className="light-list">
               <li className="not-implemented">Share and more...</li>

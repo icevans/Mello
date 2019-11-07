@@ -19,7 +19,8 @@ card1 = Card.create(
   list: list1,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 2.days.from_now
+  due_date: 2.days.from_now,
+  archived: false
 )
 
 comment1 = Comment.create(text: "First comment", card: card1)
@@ -29,7 +30,8 @@ card2 = Card.create(
   list: list1,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 4.days.from_now
+  due_date: 4.days.from_now,
+  archived: true
 )
 
 comment2 = Comment.create(text: "second comment", card: card2)
@@ -40,21 +42,24 @@ card3 = Card.create(
   list: list2,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 1.days.from_now
+  due_date: 1.days.from_now,
+  archived: false
 )
 card4 = Card.create(
   title: "fourth card",
   list: list2,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: -1.days.from_now
+  due_date: -1.days.from_now,
+  archived: false
 )
 card5 = Card.create(
   title: "fifth card",
   list: list2,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 0.days.from_now
+  due_date: 0.days.from_now,
+  archived: true
 )
 
 
@@ -66,7 +71,8 @@ card6 = Card.create(
   list: list3,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 2.days.from_now
+  due_date: 2.days.from_now,
+  archived: false
 )
 
 comment4 = Comment.create(text: "nice", card: card6)
@@ -76,7 +82,8 @@ card7 = Card.create(
   list: list3,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 1.days.from_now
+  due_date: 1.days.from_now,
+  archived: false
 )
 
 card8 = Card.create(
@@ -84,19 +91,22 @@ card8 = Card.create(
   list: list4,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: -5.days.from_now
+  due_date: -5.days.from_now,
+  archived: false
 )
 card9 = Card.create(
   title: "fourth card",
   list: list4,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 10.days.from_now
+  due_date: 10.days.from_now,
+  archived: true
 )
 card10 = Card.create(
   title: "fifth card",
   list: list4,
   description: "some desc",
   labels: ["red", "yellow"],
-  due_date: 7.days.from_now
+  due_date: 7.days.from_now,
+  archived: true
 )
