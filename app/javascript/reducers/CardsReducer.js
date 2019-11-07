@@ -9,8 +9,9 @@ export default function cardsReducer(state = [], action) {
     return state.concat(action.payload.newCard);
   } else if (action.type === 'FETCH_CARD_SUCCESS') {
     return state.map(card => {
+      const { comments, ...cardWithoutComments } = action.payload.card;
       if (card.id === action.payload.card.id) {
-        return action.payload.card;
+        return cardWithoutComments;
       } else {
         return card;
       }
