@@ -8,9 +8,21 @@ export default function cardsReducer(state = [], action) {
   } else if (action.type === 'CREATE_CARD_SUCCESS') {
     return state.concat(action.payload.newCard);
   } else if (action.type === 'FETCH_CARD_SUCCESS') {
-    const excludedCards = state.filter(card => (card.id !== action.payload.card.id));
-    
-    return excludedCards.concat(action.payload.card);
+    return state.map(card => {
+      if (card.id === action.payload.card.id) {
+        return action.payload.card;
+      } else {
+        return card;
+      }
+    });
+  } else if (action.type === 'UPDATE_CARD_SUCCESS') {
+    return state.map(card => {
+      if (card.id === action.payload.updatedCard.id) {
+        return action.payload.updatedCard;
+      } else {
+        return card;
+      }
+    });
   } else {
     return state;
   }

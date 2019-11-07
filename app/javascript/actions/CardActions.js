@@ -17,11 +17,22 @@ export function fetchCardRequest() {
 }
 
 export function fetchCardSuccess(card) {
-  return { 
+  return {
     type: types.FETCH_CARD_SUCCESS,
     payload: { card }
   };
 }
+
+export function updateCardRequest() {
+  return { type: types.UPDATE_CARD_REQUEST };
+};
+
+export function updateCardSuccess(updatedCard) {
+  return {
+    type: types.UPDATE_CARD_SUCCESS,
+    payload: { updatedCard }
+  };
+};
 
 export function createCard(card, listId, callback) {
   return function(dispatch) {
@@ -39,11 +50,21 @@ export function fetchCard(id, callback) {
   return function(dispatch) {
     dispatch(fetchCardRequest());
     apiClient.getCard(
-      id, 
+      id,
       card => {
         dispatch(fetchCardSuccess(card))
         if (callback) { callback(card.board_id); }
       }
     );
+  };
+};
+
+export function updateCard(cardProps, cardId, callback) {
+  return function(dispatch) {
+    dispatch(updateCardRequest());
+    apiClient.updateCard(cardProps, cardId, updatedCard => {
+      dispatch(updateCardSuccess(updatedCard));
+      if (callback) { callback(updatedCard); }
+    });
   };
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import CardModal from "./CardModal";
 import { connect } from 'react-redux';
+import { updateCard } from '../actions/CardActions';
 
 const mapStateToProps = (state, ownProps) => {
   const card = state.cards.find(card => {
@@ -18,9 +19,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-
+    onTitleChange: (title, callback) => {
+      dispatch(updateCard({ title }, ownProps.cardId, callback));
+    },
   }
 }
 
