@@ -41,7 +41,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onBoardLoaded: (id=ownProps.match.params.id) => {
+    onBoardLoaded: (id = ownProps.match.params.id) => {
       dispatch(
         fetchBoard(id)
       );
@@ -67,7 +67,13 @@ class BoardContainer extends React.Component {
 
   render() {
     if (this.props.board) {
-      return <Board board={this.props.board} card={this.props.card} modalVisible={this.props.modalVisible}/>
+      return <Board
+        board={this.props.board}
+        card={this.props.card}
+        modalVisible={this.props.modalVisible}
+        onBoardLoaded={this.props.onBoardLoaded}
+        onCardLoaded={this.props.onCardLoaded}
+      />
     } else {
       return null;
     }

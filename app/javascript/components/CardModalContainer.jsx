@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     card: card,
     list: list,
+    onCardLoaded: ownProps.onCardLoaded,
   }
 }
 
