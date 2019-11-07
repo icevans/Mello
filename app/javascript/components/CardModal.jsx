@@ -2,6 +2,7 @@ import React from "react";
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import CommentFormContainer from './CommentFormContainer';
+import EditableDescription from './EditableDescription';
 
 // card, list, onCardLoaded
 class CardModal extends React.Component {
@@ -40,7 +41,11 @@ class CardModal extends React.Component {
   };
 
   handleTitleBlur = () => {
-    this.props.onTitleChange(this.state.title);
+    this.props.onCardChange({ title: this.state.title });
+  };
+
+  handleDescriptionSubmit = (description) => {
+    this.props.onCardChange({ description });
   };
 
   render() {
@@ -105,20 +110,7 @@ class CardModal extends React.Component {
                     </div>
                   </li>
                 </ul>
-                <form className="description">
-                  <p>Description</p>
-                  <span id="description-edit" className="link">
-                    Edit
-                  </span>
-                  <p className="textarea-overlay">
-                    { this.props.card.description }
-                  </p>
-                  <p id="description-edit-options" className="hidden">
-                    You have unsaved edits on this field.{" "}
-                    <span className="link">View edits</span> -{" "}
-                    <span className="link">Discard</span>
-                  </p>
-                </form>
+                <EditableDescription card={this.props.card} onDescriptionSubmit={this.handleDescriptionSubmit} />
               </li>
               <li className="comment-section">
                 <h2 className="comment-icon icon">Add Comment</h2>

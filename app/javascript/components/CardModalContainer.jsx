@@ -21,8 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onTitleChange: (title, callback) => {
-      dispatch(updateCard({ title }, ownProps.cardId, callback));
+    onCardChange: (cardProps, callback) => {
+      dispatch(updateCard(cardProps, ownProps.cardId, callback));
     },
   }
 }
