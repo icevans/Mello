@@ -141,7 +141,7 @@ class CardModal extends React.Component {
                   <li className="not-implemented">Show Details</li>
                 </ul>
                 <ul className="modal-activity-list">
-                  <li>
+                  <li className="activity-comment">
                     <div className="member-container">
                       <div className="card-member">TP</div>
                     </div>
