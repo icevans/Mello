@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import CommentFormContainer from './CommentFormContainer';
 import EditableDescription from './EditableDescription';
+import DueDateContainer from './DueDateContainer'
 
 // card, list, onCardLoaded
 class CardModal extends React.Component {
@@ -12,28 +13,6 @@ class CardModal extends React.Component {
 
   state = {
     title: this.props.card.title
-  };
-
-  dueDateDifference = (due_date) => {
-    const dueDate = moment(due_date);
-    const currentDate = moment(new Date());
-    const difference = dueDate.diff(currentDate, 'days');
-
-    return difference;
-  }
-
-  dueDateClass = () => {
-    const difference = this.dueDateDifference(this.props.card.due_date);
-
-    if (difference === 1 || difference === 0) {
-      return 'due-soon';
-    } else if (difference === -1) {
-      return 'overdue-recent';
-    } else if (difference < -1) {
-      return 'overdue';
-    } else {
-      return '';
-    }
   };
 
   handleTitleChange = (evt) => {
@@ -111,17 +90,7 @@ class CardModal extends React.Component {
                     </div>
                   </li>
                   <li className="due-date-section">
-                    <h3>Due Date</h3>
-                    <div id="dueDateDisplay" className={this.dueDateClass()}>
-                      <input
-                        id="dueDateCheckbox"
-                        type="checkbox"
-                        className="checkbox"
-                        checked=""
-                      />
-                      {moment(this.props.card.due_date).format('MMM D [at] LT')}
-                      <span>{ this.dueDateDifference(this.props.card.due_date) < 0 ? '(past due)' : ''}</span>
-                    </div>
+                    <DueDateContainer dueDate={this.props.card.due_date} cardId={this.props.card.id} />
                   </li>
                 </ul>
                 <EditableDescription card={this.props.card} onDescriptionSubmit={this.handleDescriptionSubmit} />
